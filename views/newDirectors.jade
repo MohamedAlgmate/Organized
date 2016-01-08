@@ -1,0 +1,42 @@
+extends layout
+block authenticationStyle
+block errorStyle
+block content
+  .container
+    .row
+      .col-md-6
+        .pull-right
+          .btn-group.btn-breadcrumb
+              a.btn.btn-default(href="/cPanel")
+                i.glyphicon.glyphicon-home
+              a.btn.btn-default(href="#") عرض الادارات
+              .btn.btn-default.active إضافة أدارة جديدة
+      br
+      br
+      br
+      .col-md-6.col-md-offset-2
+        form.form#newDirectors(action="#", method="post", accept-charset="utf-8", role="form", onsubmit="myFunction()")
+          legend  إضافة ادارة جديدة
+            .pull-left
+              a.btn.btn-primary(href='#', role='button')
+                span.glyphicon.glyphicon-th-list
+                span  عرض الادارات 
+          .form-group
+            .row
+              .col-md-6.col-md-offset-3
+                label.h4 اسم الادارة
+                input.form-control#name(type="text", name="name", placeholder="اسم الادارة")
+          br
+          hr
+          .col-xs-2.col-xs-offset-5.col-md-2.col-md-offset-5
+            button.btn.btn-primary(type="submit")
+              | إضافة
+  br
+  script(src='/js/jquery-2.1.1.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src='/js/bootstrap-select.min.js')
+  script(src='/js/jquery.validate.min.js')
+  script(src='/js/bootstrap-notify.min.js')
+  script(src='/js/backToTop.js')
+  script(src='/js/helpers.js')
+  script(src='/js/newDirectors.js')

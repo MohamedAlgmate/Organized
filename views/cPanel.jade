@@ -1,0 +1,58 @@
+extends layout
+block authenticationStyle
+block errorStyle
+block content
+block navcPanel
+  .container.font(style="padding-top: 30px;")
+    .row
+      .col-md-6.col-md-offset-3
+        .panel.panel-primary.font
+          .panel-heading
+            h3.panel-title#panel-title
+              span.fa.fa-bookmark.fa-lg
+              | 
+              span لوحة التحكم
+          .panel-body
+            .row
+              .col-xs-6.col-md-6.animated.fadeInRight
+                a.btn.btn-danger.btn-lg.btn-block(href="#", role="button")
+                  span.fa.fa-user-plus
+                  br
+                  span تعــيين جــديد
+                a.btn.btn-warning.btn-lg.btn-block(href="#", role="button")
+                  span.fa.fa-user-times
+                  br
+                  span إنهاء خدمة
+                a.btn.btn-primary.btn-lg.btn-block(href="#", role="button")
+                  span.fa.fa-user
+                  br
+                  span عرض مستخدم
+                a.btn.btn-info.btn-lg.btn-block(href="#", role="button")
+                  span.fa.fa-exchange
+                  br
+                  span نقل مستخدم
+              .col-xs-6.col-md-6.animated.fadeInLeft
+                a.btn.btn-success.btn-lg.btn-block(href="#", role="button")
+                  span.fa.fa-clone
+                  br
+                  span الخدمة السابقة
+                a.btn.btn-info.btn-lg.btn-block(href="#", role="button")
+                  span.fa.fa-folder-o
+                  br
+                  span الدورات التدربية
+                a.btn.btn-primary.btn-lg.btn-block(href="/Directors", role="button")
+                  span.fa.fa-list-alt
+                  br
+                  span الادلة
+                a.btn.btn-warning.btn-lg.btn-block(href="#", role="button")
+                  span.fa.fa-pie-chart
+                  br
+                  span الاحصائيات 
+            a.btn.btn-success.btn-lg.btn-block.animated.fadeInUp(href="#", role="button", style="margin-bottom:0px;")
+              span.fa.fa-file-o.fa-lg 
+              span  طباعة التقارير
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src='/js/jquery.validate.min.js')
+  script(src='/js/backToTop.js')
+  
