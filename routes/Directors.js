@@ -30,6 +30,19 @@ router.get('/newDirectors', function(req, res) {
       res.redirect('/directors?msg=1');
     });
   });
+
+  //search Directors by name
+router.get('/directorssearch/:name',function(req, res) {
+   models.Directors.findAll({
+    where: {
+      directors_name:{
+        $like:'%'+req.params.name+'%'
+      } 
+    }
+  }).then(function(directors) {
+    res.send(directors);
+  });
+});
 // ///  End Directors  ////////////////////////////////////////////////
 
 module.exports = router;

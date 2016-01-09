@@ -22,13 +22,23 @@ $(document).ready(function(){
   //     }
   //   });
   // });
+$('#Directors_search').on('input', function(){
+    if($('#Directors_search').val().length >=1) {
+      $.get('/Directors/directorssearch/'+$('#Directors_search').val(),function(result){
+        $('#tbody').empty();
+        $('.pagination').hide();
+        for(key in result){
+          $('#tbody').append('<tr data-id = "'+result[key].id+'" data-directors_name = "'+result[key].directors_name+'"><td>'+result[key].directors_name+'</td><td></td><td class="text-center"><p data-placement="top" data-toggle="tooltip" title="تعديل"><button id="Edit" class="btn btn-primary btn-xs editDirectors" value="'+result[key].id+'"data-title="Edit" data-nn="'+result[key].id+'" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></spam></button></p></td><td class="text-center"><p data-placement="top" data-toggle="tooltip" title="إلغاء"><button id="Delete" class="btn btn-danger btn-xs" value="'+result[key].id+'"data-title="Delete" data-toggle="modal" data-target="#delete"><span class="glyphicon glyphicon-trash"></span></button></p></td></tr>');
+        }
+      });
+    }
+  });
 
-  // $('.editDepartment').on('click',function(){
-  //   var myDataAttr = $(this).val();
-  //   $('#name').val($('[data-id = "'+myDataAttr+'"]').data('name'));
-  //   $('#name_en').val($('[data-id = "'+myDataAttr+'"]').data('name_en'));
-  //   $('#id').val($('[data-id = "'+myDataAttr+'"]').data('id'));
-  // });
+  $('.editDirectors').on('click',function(){
+    var myDataAttr = $(this).val();
+    $('#directors_name').val($('[data-id = "'+myDataAttr+'"]').data('directors_name'));
+    $('#id').val($('[data-id = "'+myDataAttr+'"]').data('id'));
+  });
  
   // $('body').on('click', '#save', function (e) {
   //   e.preventDefault();
@@ -67,12 +77,12 @@ $(document).ready(function(){
   
   $("#formDirectors").validate({
     rules:{
-      name:{
+      directors_name:{
         required: true,
       },
     },
     messages:{
-      name:{
+      directors_name:{
         required: "الرجاء ادخال اسم القسم!",
       },
     },
@@ -104,17 +114,8 @@ $(document).ready(function(){
     var pageUrl = '/directors'
     window.history.pushState("","",pageUrl);
   }
-  // $('#Directors_search').on('input', function(){
-  //   if($('#Directors_search').val().length >=3) {
-  //     $.get('/department/departmentsearch/'+$('#Directors_search').val(),function(result){
-  //       $('#tbody').empty();
-  //       $('.pagination').hide();
-  //       for(key in result){
-  //         $('#tbody').append('<tr data-id = "'+result[key].id+'" data-name = "'+result[key].name+'" data-name_en = "'+result[key].name_en+'"><td>'+result[key].name+'</td><td class="text-left">'+result[key].name_en+'</td><td></td><td class="text-center"><p data-placement="top" data-toggle="tooltip" title="تعديل"><button id="Edit" class="btn btn-primary btn-xs editDepartment" value="'+result[key].id+'"data-title="Edit" data-nn="'+result[key].id+'" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></spam></button></p></td><td class="text-center"><p data-placement="top" data-toggle="tooltip" title="إلغاء"><button id="Delete" class="btn btn-danger btn-xs" value="'+result[key].id+'"data-title="Delete" data-toggle="modal" data-target="#delete"><span class="glyphicon glyphicon-trash"></span></button></p></td></tr>');
-  //       }
-  //     });
-  //   }
-  // });
+
+  
 
   $('#edit').on('hidden.bs.modal', function(){
     $('.form-group').removeClass('has-error');

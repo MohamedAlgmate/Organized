@@ -36,12 +36,12 @@ block content
                 th.text-center الغاء
               tbody#tbody
                 for Directors in dire
-                  tr(data-id = '#{Directors.id}',data-name = '#{Directors.directors_name}')
+                  tr(data-id = '#{Directors.id}',data-directors_name = '#{Directors.directors_name}')
                     td #{Directors.directors_name}
                     td
                     td.text-center
                       p(data-placement="top", data-toggle="tooltip", title="تعديل")
-                        button#Edit.btn.btn-primary.btn-xs.editDepartment(value='#{Directors.id}',data-title="Edit",data-nn="#{Directors.id}", data-toggle="modal", data-target="#edit")
+                        button#Edit.btn.btn-primary.btn-xs.editDirectors(value='#{Directors.id}',data-title="Edit",data-nn="#{Directors.id}", data-toggle="modal", data-target="#edit")
                           span.glyphicon.glyphicon-pencil
                     td.text-center
                       p(data-placement="top", data-toggle="tooltip", title="إلغاء")
@@ -65,12 +65,12 @@ block content
             span.glyphicon.glyphicon-remove(aria-hidden="true")
           h4#Heading.modal-title.custom_align تعديل ادارة
         .modal-body 
-          form#formDirectors.form-signin(role="form",name='formDepartment')
+          form#formDirectors.form-signin(role="form",name='formDirectors')
             .form-group
               .row
-                .col-xs-6.col-md-6
+                .col-md-6.col-md-offset-3
                   label.h4 اسم الادارة
-                  input#name.form-control(type="text", placeholder="اسم الادارة", name="name")
+                  input#directors_name.form-control(type="text", placeholder="اسم الادارة", name="directors_name")
                   input#id(name="id",type="hidden")
         .modal-footer
           button#save.btn.btn-warning.btn-lg(style="width: 100%;")
