@@ -9,49 +9,49 @@ var path = require("path");
 module.exports = {
 
   /* here we add a new user to the system */
-  addUser: function (body, cb) {
-    var salt = easyPbkdf2.generateSalt(), //we generate a new salt for every new user
-        password = body.password; //we generate a new password for every new user
-    easyPbkdf2.secureHash( password, salt, function( err, passwordHash, originalSalt ) {
-      var obj={
-            name : body.name,
-            email : body.email,
-            password : passwordHash,
-            phone : body.phone,
-            salt : originalSalt,
-          }
-      models.User.create(obj).then(function() {
-        cb(true);
-      });
+  // addUser: function (body, cb) {
+  //   var salt = easyPbkdf2.generateSalt(), //we generate a new salt for every new user
+  //       password = body.password; //we generate a new password for every new user
+  //   easyPbkdf2.secureHash( password, salt, function( err, passwordHash, originalSalt ) {
+  //     var obj={
+  //           name : body.name,
+  //           email : body.email,
+  //           password : passwordHash,
+  //           phone : body.phone,
+  //           salt : originalSalt,
+  //         }
+  //     models.User.create(obj).then(function() {
+  //       cb(true);
+  //     });
       
-    });
-  },
+  //   });
+  // },
 
-  updateUser: function (body, cb) {
-    var salt = easyPbkdf2.generateSalt(), //we generate a new salt for every new user
-        password = body.password; //we generate a new password for every new user
-    easyPbkdf2.secureHash( password, salt, function( err, passwordHash, originalSalt ) {
-      var obj={
-            name : body.name,
-            email : body.email,
-            password : passwordHash,
-            phone : body.phone,
-            salt : originalSalt,
-          }
-      models.User.update(obj,{
-          where: {
-             id: body.id
-          }
-      }).then(function(user) {
-        cb(user);
-      });
-    });
-  },
+  // updateUser: function (body, cb) {
+  //   var salt = easyPbkdf2.generateSalt(), //we generate a new salt for every new user
+  //       password = body.password; //we generate a new password for every new user
+  //   easyPbkdf2.secureHash( password, salt, function( err, passwordHash, originalSalt ) {
+  //     var obj={
+  //           name : body.name,
+  //           email : body.email,
+  //           password : passwordHash,
+  //           phone : body.phone,
+  //           salt : originalSalt,
+  //         }
+  //     models.User.update(obj,{
+  //         where: {
+  //            id: body.id
+  //         }
+  //     }).then(function(user) {
+  //       cb(user);
+  //     });
+  //   });
+  // },
   /* here we check if the user have root access */
-  isLogin : function (req,res,next) {
-    if (req.isAuthenticated()) { return next(); }
-    res.redirect('/');
-  },
+  // isLogin : function (req,res,next) {
+  //   if (req.isAuthenticated()) { return next(); }
+  //   res.redirect('/');
+  // },
   getPage : function (req){
     var page = 1;
     if(url.parse(req.url, true).query.p){

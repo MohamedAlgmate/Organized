@@ -9,23 +9,23 @@ block content
           .btn-group.btn-breadcrumb
               a.btn.btn-default(href="/cPanel")
                 i.glyphicon.glyphicon-home
-              a.btn.btn-default(href="#") عرض الادارات
+              a.btn.btn-default(href="/Directors") عرض الادارات
               .btn.btn-default.active إضافة أدارة جديدة
       br
       br
       br
       .col-md-6.col-md-offset-2
-        form.form#newDirectors(action="#", method="post", accept-charset="utf-8", role="form", onsubmit="myFunction()")
+        form.form#newDirectors(action="/Directors/newDirectors", method="post", accept-charset="utf-8", role="form", onsubmit="myFunction()")
           legend  إضافة ادارة جديدة
             .pull-left
-              a.btn.btn-primary(href='#', role='button')
+              a.btn.btn-primary(href='/Directors', role='button')
                 span.glyphicon.glyphicon-th-list
                 span  عرض الادارات 
           .form-group
             .row
               .col-md-6.col-md-offset-3
                 label.h4 اسم الادارة
-                input.form-control#name(type="text", name="name", placeholder="اسم الادارة")
+                input.form-control#directors_name(type="text", name="directors_name", placeholder="اسم الادارة")
           br
           hr
           .col-xs-2.col-xs-offset-5.col-md-2.col-md-offset-5

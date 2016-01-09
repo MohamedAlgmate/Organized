@@ -2,19 +2,13 @@ $(document).ready(function(){
   $("#newDirectors").validate({
     ignore: ':not(select:hidden, input:visible, textarea:visible)',
     rules:{
-      name:{
-        required: true,
-      },
-      name_en:{
+      directors_name:{
         required: true,
       },
     },
     messages:{
-      name:{
-        required: "الرجاء ادخال اسم الشعبة!",
-      },
-      name_en:{
-        required: "!Please enter Division name",
+      directors_name:{
+        required: "الرجاء ادخال اسم الادارة!",
       },
     },
     // errorElement: 'label',
@@ -39,6 +33,7 @@ $(document).ready(function(){
       }
     },
   });
+
   $('.selectpicker').selectpicker().change(function(){
     $(this).valid()
   });
