@@ -10,6 +10,20 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var cPanel = require('./routes/cPanel');
 var Directors = require('./routes/Directors');
+var WorkSite = require('./routes/WorkSite');
+var Cities = require('./routes/Cities');
+var Countries = require('./routes/Countries');
+var Company = require('./routes/Company');
+var MilitaryType = require('./routes/MilitaryType');
+var OrganizationalUnits = require('./routes/OrganizationalUnits');Jobs
+var Jobs = require('./routes/Jobs');
+var Qualification = require('./routes/Qualification');
+var QualifiedType = require('./routes/QualifiedType');
+var Specialty = require('./routes/Specialty');
+var JobStatus = require('./routes/JobStatus');
+var Jobposition = require('./routes/Jobposition');
+var LevelJob = require('./routes/LevelJob');
+
 
 var app = express();
 
@@ -31,7 +45,19 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/cPanel', cPanel);
 app.use('/Directors', Directors);
-
+app.use('/WorkSite', WorkSite);
+app.use('/Cities', Cities);
+app.use('/Countries', Countries);
+app.use('/Company', Company);
+app.use('/MilitaryType', MilitaryType);
+app.use('/OrganizationalUnits', OrganizationalUnits);
+app.use('/Jobs', Jobs);
+app.use('/Qualification', Qualification);
+app.use('/QualifiedType', QualifiedType);
+app.use('/Specialty', Specialty);
+app.use('/JobStatus', JobStatus);
+app.use('/Jobposition', Jobposition);
+app.use('/LevelJob', LevelJob);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

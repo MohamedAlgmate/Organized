@@ -1,5 +1,5 @@
 "use strict";
-//المؤل
+//المهؤل
 module.exports = function(sequelize, DataTypes) {
   var Qualification = sequelize.define("Qualification", {
     qualification_name: DataTypes.STRING (60) ,

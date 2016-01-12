@@ -8,9 +8,17 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         Specialty.belongsTo(models.Qualification, {
-          as: 'SpecialtyId', 
+          as: 'QualificationId', 
           foreignKey : {
-            name : 'Specialty_Id',
+            name : 'Qualification_Id',
+            allowNull : true
+          },
+          onDelete: "restrict",
+        });
+        Specialty.belongsTo(models.QualifiedType, {
+          as: 'QualifiedTypeId', 
+          foreignKey : {
+            name : 'QualifiedType_Id',
             allowNull : true
           },
           onDelete: "restrict",

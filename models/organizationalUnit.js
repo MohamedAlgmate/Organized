@@ -3,6 +3,7 @@
 module.exports = function(sequelize, DataTypes) {
   var OrganizationalUnit = sequelize.define("OrganizationalUnit", {
   	name: DataTypes.STRING (60) ,
+    cost_center: DataTypes.STRING (60) ,
   	status:{type:DataTypes.INTEGER(1),defaultValue:1} 
   }, {
     classMethods: {
